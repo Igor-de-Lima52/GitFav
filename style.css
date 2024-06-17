@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+    --color-black: #000;
+    --color-white: #FFF;
+    --color-blue-300: #065E7C;
+    --color-blue-500: #092D38;
+    --color-blue-700: #06181C;
+    --color-blue-900: #06161B;
+    --color-line-even: hsla(193, 61%, 6%, 0.5);
+    --color-table-border: #4A808C;
+    --tt-color-primary: #7C7C8A;
+    --tt-color-secondary: #E1E1E6;
+    --tt-color-tertiary: #F75A68;
+    --tt-color-quartiary: #4E5455;
+}
+html, body, button, input{
+    font-family: "Roboto", sans-serif;
+}
+body{
+    font-size: 1.6rem;
+    background: var(--color-black);
+}
+.sr-only{
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+ #app{
+    margin: auto;
+    max-width: 112rem;
+}
+header{
+    margin: 8.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .search{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+}
+header input{
+    border: none;
+    border-radius: .5rem;
+    background: var(--color-blue-700);
+    color: var(--tt-color-primary);
+    font-size: 1.6rem;
+    width: 46.2rem;
+    height: 4.8rem;
+    padding: 1.6rem;
+}
+header button{
+    border: none;
+    border-radius: .5rem;
+    background: var(--color-blue-300);
+    position: relative;
+    height: 4.8rem;
+    padding: 1.2rem 3.2rem;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-white);
+    cursor: pointer;
+}
+header button img {
+    transition: opacity .3s, display .3s;
+}
+header button:hover{
+    background: var(--color-white);
+    color: var(--color-blue-300);
+    transition: background .3s, color .3s; 
+}
+header button:hover img {
+    display: none;
+}
+header button::before{
+    content: url('./assets/star-2.png');
+    width: 2.4rem;
+    height: 2.2rem;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    display: none;
+    transition: opacity 3s, display .3s;
+}
+header button:hover::before {
+    opacity: 1;
+    display: inline;
+    position: relative;
+}
+main{
+    overflow: hidden;
+    border-radius: 1.2rem;
+    border: 1px solid var(--color-table-border);
+}
+.table-wrapper{
+    max-height: 38rem;
+    overflow: auto;
+}
+table{
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--tt-color-secondary);
+}
+main table th{
+    font-size: 2rem;
+    background: var(--color-blue-500);
+    text-align: left;
+    padding: 1.6rem 0 1.6rem 4.2rem;
+}
+tbody{
+    position: relative;
+}
+tbody.without-rows{
+    height: 32rem;
+    font-family: "Roboto Mono" , sans-serif;
+    position: relative;
+}
+.image{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    color: var(--tt-color-quartiary);
+    font-size: 2rem;
+}
+.image img{
+    width: 10rem;
+}
+main table tbody tr img{
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50%;
+}
+td{
+    padding: 2.4rem 0;
+}
+td.user{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+td.user a{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    text-decoration: none;
+    color: var(--tt-color-secondary);
+}
+td.user span{
+    font-weight: normal;   
+}
+.user, .repositories, .followers{
+    padding-left: 4rem;
+    font-weight: bold;
+}
+tr:nth-child(odd){
+    background: var(--color-line-even);
+}
+tr:nth-child(even){
+    border-top: 1px solid var(--color-table-border);
+    border-bottom: 1px solid var(--color-table-border);
+    background: var(--color-blue-700);
+}
+tr:nth-child(even):last-child{
+    border-bottom: none;
+}
+button.remove{
+    border: none;
+    background: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--tt-color-tertiary);
+    margin-left: 4rem;
+    cursor: pointer;
+}
