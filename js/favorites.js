@@ -16,12 +16,12 @@ export class Favorites {
             const userExists = this.entries.find(entry => entry.login === username);
             
             if(userExists){
-                throw new Error("Usuário já cadastrado");
+                throw new Error("User already registered");
             };
 
             const user = await GithubUser.search(username);
             if(user.login === undefined){
-                throw new Error("Usuário não encontrado!");
+                throw new Error("User not found");
             }
             this.entries = [user, ...this.entries];
             this.update();
@@ -42,9 +42,9 @@ export class FavoritesView extends Favorites{
         super(root);
         this.tbody = this.root.querySelector("table tbody");
         this.update();
-        this.onadd();
+        this.onAdd();
     }
-    onadd(){
+    onAdd(){
         const addButton = document.querySelector(".search button");
         addButton.onclick = () => {
             const { value } = this.root.querySelector(".search input");
@@ -56,7 +56,7 @@ export class FavoritesView extends Favorites{
         const tbodyWithoutEntriesView = `
                         <div class="image">
                             <img src="./assets/Estrela.png">
-                            <h2>Nenhum favorito ainda</h2>
+                            <h2>No favorites users yet</h2>
                         </div>
         `
         const withoutEntries = this.entries.length == 0;
@@ -71,7 +71,7 @@ export class FavoritesView extends Favorites{
             this.entries.forEach(user => {
                 const row = this.createRow();
                 row.querySelector(".user img").src = `https://github.com/${user.login}.png`;
-                row.querySelector(".user img").alt = `Imagem de ${user.name}`;
+                row.querySelector(".user img").alt = `Image of ${user.name}`;
                 row.querySelector(".user a").href = `https://github.com/${user.login}`;
                 row.querySelector(".user p").textContent = user.name;
                 row.querySelector(".user span").textContent = user.login;
@@ -79,7 +79,7 @@ export class FavoritesView extends Favorites{
                 row.querySelector(".followers").textContent = user.followers;
 
                 row.querySelector(".remove").onclick = () => {
-                    const isOk = confirm("Tem certeza que deseja deletar essa linha?");
+                    const isOk = confirm("Do you have sure you want do delete this line?");
                     if(isOk){
                         this.delete(user);
                     }
@@ -92,7 +92,7 @@ export class FavoritesView extends Favorites{
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td class="user">
-                <img src="https://github.com/maykbrito.png" alt="Imagem de maykbrito">
+                <img src="https://github.com/maykbrito.png" alt="Image of maykbrito">
                 <a href="https://github.com/maykbrito" target="_blank">
                     <p>Mayk Brito</p>
                     <span>maykbrito</span>
@@ -103,7 +103,7 @@ export class FavoritesView extends Favorites{
             <td class="followers">
                 9589
             </td>
-            <td><button class="remove">Remover</button></td>
+            <td><button class="remove">Remove</button></td>
         `
         return tr;  
     }
