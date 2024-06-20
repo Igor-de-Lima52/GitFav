@@ -1,8 +1,7 @@
 
-# Página GitFav
+# Page GitFav
 
-Esse projeto foi feito para uma página sobre seus perfis favoritos do github.
-
+This project was developed for a page about your favorite github profiles.
 
 
 ## Screenshots
