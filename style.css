@@ -122,6 +122,17 @@ table{
     width: 100%;
     border-collapse: collapse;
     color: var(--tt-color-secondary);
+    /* display: grid;
+    grid-template-rows: 5.6rem 1fr;
+    grid-template-areas: "header" "body"; */
+}
+
+.table-wrapper::-webkit-scrollbar{
+    width: 10px;
+    background: transparent;
+}
+.table-wrapper::-webkit-scrollbar-thumb{
+    background: var(--color-blue-900);
 }
 main table th{
     font-size: 2rem;
