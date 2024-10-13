@@ -30,4 +30,4 @@ To execute the project in development environment, simply open the `index.html` 
 
 This project use the **Github API** to search and display the user profiles.
 
-## [You can see the project here](https://githubfavorite.netlify.app/)
+[You can see the project here](https://githubfavorite.netlify.app/)
